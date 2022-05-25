@@ -5,9 +5,10 @@ import Text from "./src/components/text/text";
 import { colors } from "./src/Theme/colors";
 import { spacing } from "./src/Theme/spacing";
 import { typography } from "./src/Theme/typography";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DarkTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./src/screens/home";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,8 +23,8 @@ export default function App() {
     return <Text>Font is loading...</Text>;
   }
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer theme={DarkTheme}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -33,7 +34,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.grey,
+    backgroundColor: colors.black,
     alignItems: "center",
     justifyContent: "center",
   },
