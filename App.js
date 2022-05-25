@@ -23,11 +23,14 @@ export default function App() {
     return <Text>Font is loading...</Text>;
   }
   return (
-    <NavigationContainer theme={DarkTheme}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={Home} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer theme={DarkTheme}>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <StatusBar style="light" />
+    </>
   );
 }
 
