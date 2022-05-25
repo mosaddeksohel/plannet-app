@@ -5,6 +5,11 @@ import Text from "./src/components/text/text";
 import { colors } from "./src/Theme/colors";
 import { spacing } from "./src/Theme/spacing";
 import { typography } from "./src/Theme/typography";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./src/screens/home";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [loaded] = useFonts({
@@ -17,13 +22,11 @@ export default function App() {
     return <Text>Font is loading...</Text>;
   }
   return (
-    <View style={styles.container}>
-      <Text preset="h1">Open up to start working on your app!</Text>
-      <Text style={{ fontFamily: typography.bold, marginTop: spacing[4] }}>
-        Hello world
-      </Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
