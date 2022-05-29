@@ -6,7 +6,7 @@ import { colors } from "../Theme/colors";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function PlanetHeader({ backbtn }) {
+export default function PlanetHeader({ backbtn, title = "THE PLANETS" }) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -20,7 +20,7 @@ export default function PlanetHeader({ backbtn }) {
           <AntDesign name="left" size={20} color="white" />
         </Pressable>
       )}
-      <Text preset="h2">THE PLANETS</Text>
+      <Text preset="h2">{title}</Text>
     </View>
   );
 }
